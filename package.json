@@ -1,0 +1,26 @@
+{
+    "name": "my-app",
+    "version": "1.0.0",
+    "description": "A project with separate WebSocket servers for each subpage",
+    "main": "server.js",
+    "scripts": {
+      "start": "concurrently \"npm run start:main\" \"npm run start:subpage1\" \"npm run start:subpage2\"",
+      "start:main": "node server.js",
+      "start:subpage1": "node ws/subpage1Server.js",
+      "start:subpage2": "node ws/subpage2Server.js"
+    },
+    "dependencies": {
+      "cors": "^2.8.5",
+      "express": "^4.19.2",
+      "http": "^0.0.1-security",
+      "path": "^0.12.7",
+      "socket.io": "^4.7.5",
+      "ws": "^8.18.0"
+    },
+    "devDependencies": {
+      "concurrently": "^7.6.0"
+    },
+    "author": "",
+    "license": "ISC"
+  }
+  
