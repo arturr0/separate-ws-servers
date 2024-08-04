@@ -8,7 +8,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const socket = io('wss://separate-ws-servers.onrender.com:3002', {
-                transports: ["websocket", "polling"]
+                transports: ["websocket"]
             });
 
             socket.on('connect', () => {
