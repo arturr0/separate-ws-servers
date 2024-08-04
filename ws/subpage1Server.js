@@ -4,15 +4,17 @@ const express = require('express');
 const cors = require('cors');
 
 const app = express();
-const port = 3001; // Port for Subpage 1 WebSocket server
+const port = 3001; // Port for Subpage 1
 
-app.use(cors());
+app.use(cors()); // Enable CORS
 
 const server = http.createServer(app);
 const io = socketIo(server, {
     cors: {
-        origin: "*",
-        methods: ["GET", "POST"]
+        origin: "https://separate-ws-servers.onrender.com", // Allowed origin
+        methods: ["GET", "POST"],
+        allowedHeaders: ["my-custom-header"],
+        credentials: true
     }
 });
 
