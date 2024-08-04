@@ -4,7 +4,7 @@ const express = require('express');
 const cors = require('cors');
 
 const app = express();
-const port = 3001; // Ensure this is the correct port for Render service
+const port = 3001; // Port for Subpage 1 WebSocket server
 
 app.use(cors({
     origin: true,
