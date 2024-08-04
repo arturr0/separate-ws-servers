@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Subpage 2</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.min.js"></script>
+    
+</head>
+<body>
+    <h1>Welcome to Subpage 2</h1>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const socket = io('wss://separate-ws-servers.onrender.com:3002', {
@@ -22,8 +26,5 @@
             socket.send('Hello from Subpage 2 client!');
         });
     </script>
-</head>
-<body>
-    <h1>Welcome to Subpage 2</h1>
 </body>
 </html>
