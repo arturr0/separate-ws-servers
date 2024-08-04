@@ -13,7 +13,6 @@ const io = socketIo(server, {
     cors: {
         origin: "https://separate-ws-servers.onrender.com", // Allowed origin
         methods: ["GET", "POST"],
-        allowedHeaders: ["my-custom-header"],
         credentials: true
     }
 });
