@@ -1,11 +1,30 @@
 const express = require('express');
+const http = require('http');
 const path = require('path');
+const socketIo = require('socket.io');
+const cors = require('cors');
+
+// Import WebSocket handlers
+const subpage1Ws = require('./ws/subpage1Server');
+const subpage2Ws = require('./ws/subpage2Server');
 
 const app = express();
-const port = process.env.PORT || 3000; // Use the PORT environment variable or default to 3000
+const port = process.env.PORT || 3000;
 
-// Serve static files from the 'public' directory
+app.use(cors());
 app.use(express.static(path.join(__dirname, 'public')));
+
+const server = http.createServer(app);
+const io = socketIo(server, {
+    cors: {
+        origin: "*",
+        methods: ["GET", "POST"]
+    }
+});
+
+// Attach WebSocket handlers to namespaces
+io.of('/subpage1').on('connection', subpage1Ws);
+io.of('/subpage2').on('connection', subpage2Ws);
 
 // Define routes for different pages
 app.get('/', (req, res) => {
@@ -20,7 +39,6 @@ app.get('/subpage2', (req, res) => {
     res.sendFile(path.join(__dirname, 'public/subpage2.html'));
 });
 
-// Start the HTTP server
-app.listen(port, () => {
+server.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
