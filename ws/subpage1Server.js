@@ -32,6 +32,6 @@ io.on('connection', (socket) => {
     });
 });
 
-server.listen(port, () => {
+http.listen(port, () => {
     console.log(`Subpage 1 WebSocket server is running on port ${port}`);
 });
