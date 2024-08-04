@@ -4,7 +4,7 @@ const express = require('express');
 const cors = require('cors');
 
 const app = express();
-const port = 3001; // Port for Subpage 1
+const port = process.env.PORT || 3001; // Port for Subpage 1
 
 app.use(cors()); // Enable CORS
 
