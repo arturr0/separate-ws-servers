@@ -4,14 +4,14 @@ const express = require('express');
 const cors = require('cors');
 
 const app = express();
-const port = 8082; // Use the PORT environment variable or default to 8082
+const port = 10002;
 
 app.use(cors());
 
 const server = http.createServer(app);
 const io = socketIo(server, {
     cors: {
-        origin: "*", // Allow requests from the main server
+        origin: "*", // Allow all origins
         methods: ["GET", "POST"]
     }
 });
@@ -23,7 +23,7 @@ io.on('connection', (socket) => {
         console.log(`Message from client on Subpage 2: ${msg}`);
     });
 
-    socket.send('Welcome to the WebSocket server for Subpage 2');
+    socket.send('Welcome to Subpage 2 WebSocket server');
 
     socket.on('disconnect', () => {
         console.log('User disconnected from Subpage 2 WebSocket server');
@@ -31,5 +31,5 @@ io.on('connection', (socket) => {
 });
 
 server.listen(port, () => {
-    console.log(`Subpage 2 WebSocket server is running on http://localhost:${port}`);
+    console.log(`Subpage 2 WebSocket server running on port ${port}`);
 });
