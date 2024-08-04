@@ -7,7 +7,7 @@ const app = express();
 const port = 3002; // Use the PORT environment variable set by Render
 
 app.use(cors({
-    origin: "https://separate-ws-servers.onrender.com", // Your frontend's URL
+    origin: "https://separate-ws-servers.onrender.com/subpage2", // Your frontend's URL
     methods: ["GET", "POST"],
     credentials: true
 }));
