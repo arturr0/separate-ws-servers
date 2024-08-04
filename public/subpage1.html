@@ -1,27 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Subpage 1</title>
     <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+</head>
+<body>
+    <h1>Welcome to Subpage 1</h1>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const socket = io('https://separate-ws-servers.onrender.com/subpage1'); // Connect to Subpage 1 server
+            const socket = io('https://separate-ws-servers.onrender.com', {
+                path: '/subpage1/socket.io',
+                transports: ['websocket', 'polling']
+            });
 
             socket.on('connect', () => {
                 console.log('Connected to Subpage 1 WebSocket server');
+                socket.send('Hello from Subpage 1 client!');
             });
 
             socket.on('message', (message) => {
                 console.log(`Received message: ${message}`);
             });
 
-            socket.send('Hello from Subpage 1 client!');
+            socket.on('disconnect', () => {
+                console.log('Disconnected from Subpage 1 WebSocket server');
+            });
         });
     </script>
-</head>
-<body>
-    <h1>Welcome to Subpage 1</h1>
 </body>
 </html>
