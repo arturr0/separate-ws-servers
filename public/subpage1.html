@@ -8,7 +8,7 @@
     <h1>Welcome to Subpage 1</h1>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const socket = io('https://separate-ws-servers.onrender.com', {
+            const socket = io.connect('https://separate-ws-servers.onrender.com', {
                 path: '/subpage1/socket.io',
                 transports: ['websocket', 'polling']
             });
