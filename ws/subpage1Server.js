@@ -7,7 +7,7 @@ const app = express();
 const port = 3001; // Ensure this is the correct port for Render service
 
 app.use(cors({
-    origin: "https://separate-ws-servers.onrender.com",
+    origin: true,
     methods: ["GET", "POST"],
     credentials: true
 }));
@@ -15,7 +15,7 @@ app.use(cors({
 const server = http.createServer(app);
 const io = socketIo(server, {
     cors: {
-        origins: '*:*',
+        origin: true,
         methods: ["GET", "POST"],
         credentials: true
     }
