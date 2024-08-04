@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Subpage 2</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const socket = io.connect('https://separate-ws-servers.onrender.com:3002'); // Connect to Subpage 2 WebSocket server
+            const socket = io('https://separate-ws-servers.onrender.com:3002', {
+                transports: ["websocket", "polling"]
+            });
 
             socket.on('connect', () => {
                 console.log('Connected to Subpage 2 WebSocket server');
