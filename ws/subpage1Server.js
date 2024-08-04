@@ -11,7 +11,7 @@ app.use(cors());
 const server = http.createServer(app);
 const io = socketIo(server, {
     cors: {
-        origin: "http://localhost:3000", // Allow requests from the main server
+        origin: "https://separate-ws-servers.onrender.com", // Allow requests from the main server
         methods: ["GET", "POST"]
     }
 });
