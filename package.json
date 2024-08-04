@@ -6,8 +6,8 @@
     "scripts": {
       "start": "concurrently \"npm run start:main\" \"npm run start:subpage1\" \"npm run start:subpage2\"",
       "start:main": "node server.js",
-      "start:subpage1": "node ws/subpage1Server.js",
-      "start:subpage2": "node ws/subpage2Server.js"
+      "start:subpage1": "node ws/subpage1Server.js"
+      
     },
     "dependencies": {
       "cors": "^2.8.5",
