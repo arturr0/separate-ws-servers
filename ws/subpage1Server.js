@@ -18,7 +18,8 @@ const io = socketIo(server, {
         origin: true,
         methods: ["GET", "POST"],
         credentials: true
-    }
+    },
+    transports: ["websocket", "polling"]
 });
 
 io.on('connection', (socket) => {
