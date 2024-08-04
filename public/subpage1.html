@@ -7,7 +7,7 @@
     <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const socket = io('https://separate-ws-servers.onrender.com:3001'); // Connect to Subpage 1 WebSocket server
+            const socket = io('https://separate-ws-servers.onrender.com/subpage1'); // Connect to Subpage 1 WebSocket server
 
             socket.on('connect', () => {
                 console.log('Connected to Subpage 1 WebSocket server');
