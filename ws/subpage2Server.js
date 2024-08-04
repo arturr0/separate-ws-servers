@@ -4,7 +4,7 @@ const express = require('express');
 const cors = require('cors');
 
 const app = express();
-const port = 3002; // Ensure this is the correct port for Render service
+const port = 3002; // Port for Subpage 2 WebSocket server
 
 app.use(cors({
     origin: true,
@@ -19,7 +19,7 @@ const io = socketIo(server, {
         methods: ["GET", "POST"],
         credentials: true
     },
-    transports: ["websocket", "polling"] // Specify transports
+    transports: ["websocket", "polling"]
 });
 
 io.on('connection', (socket) => {
