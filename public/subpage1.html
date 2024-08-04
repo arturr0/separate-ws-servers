@@ -7,7 +7,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const socket = io('https://separate-ws-servers.onrender.com:3001', {
+            const socket = io('wss://separate-ws-servers.onrender.com:3001', {
                 transports: ["websocket", "polling"]
             });
 
