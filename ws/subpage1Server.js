@@ -15,7 +15,7 @@ app.use(cors({
 const server = http.createServer(app);
 const io = socketIo(server, {
     cors: {
-        origin: "https://separate-ws-servers.onrender.com",
+        origins: '*:*',
         methods: ["GET", "POST"],
         credentials: true
     }
