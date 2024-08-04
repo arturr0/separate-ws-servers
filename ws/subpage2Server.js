@@ -4,7 +4,7 @@ const express = require('express');
 const cors = require('cors');
 
 const app = express();
-const port = process.env.PORT || 8082; // Use the PORT environment variable or default to 8082
+const port = 8082; // Use the PORT environment variable or default to 8082
 
 app.use(cors());
 
