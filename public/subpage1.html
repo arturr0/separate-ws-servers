@@ -11,7 +11,7 @@
     <h1>Welcome to Subpage 1</h1>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const socket = io('wss://separate-ws-servers.onrender.com:3001', {
+            const socket = io('wss://separate-ws-servers.onrender.com/subpage1:3001', {
                 transports: ["websocket"]
             });
 
